@@ -20,7 +20,6 @@ if (!dir.exists("gif_frames")) {
 }
 
 
-# Save each year's 3D plot as an image
 start_year <- min(climate_vars$year)
 end_year <- max(climate_vars$year) - 1
 
@@ -32,8 +31,7 @@ zlim <- range(climate_vars$precipitation)
 
 
 open3d()
-par3d(windowRect = c(0, 0, 800, 800)) #800x800 pixel
-
+par3d(windowRect = c(0, 0, 800, 800))
 bg3d("white")
 
 for (year in start_year:end_year) {
@@ -46,8 +44,6 @@ for (year in start_year:end_year) {
   frame_file <- file.path("gif_frames", sprintf("frame_%04d.png", year))
 
 clear3d()
-
-  #create 3D plot
   plot3d(
     x = window_data$sunshine,
     y = window_data$temperature,
